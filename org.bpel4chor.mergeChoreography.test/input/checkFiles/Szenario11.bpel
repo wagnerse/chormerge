@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract">
+	<flow name="MergedFlow">
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_Scenario7withPrintService">
+						<faultHandlers>
+							<catchAll>
+								<scope name="Faulthandler_2">
+									<faultHandlers>
+										<catchAll>
+											<scope name="Faulthandler_3">
+												<faultHandlers>
+													<catchAll>
+														<sequence>
+															<assign name="Error"/>
+															<invoke name="Invoke_PrintService"/>
+														</sequence>
+													</catchAll>
+												</faultHandlers>
+												<sequence>
+													<assign name="Error"/>
+													<assign name="callBpelPrinter"/>
+													<wait name="Wait"/>
+													<throw name="Throw_2"/>
+												</sequence>
+											</scope>
+										</catchAll>
+									</faultHandlers>
+									<sequence>
+										<assign name="Error"/>
+										<invoke inputVariable="directPrinterRequest"/>
+										<wait name="Wait"/>
+										<throw name="Throw_1"/>
+									</sequence>
+								</scope>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<receive name="receiveInput"/>
+							<assign name="Assign"/>
+							<if name="If">
+								<sequence>
+									<assign name="Fehler_ausgabe"/>
+									<reply name="replyOutput"/>
+									<throw name="Falsche_Eingabe"/>
+								</sequence>
+								<else>
+									<sequence name="Sequence">
+										<reply name="ReplyOutput_ohne_Fehler"/>
+									</sequence>
+								</else>
+							</if>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_BpelPrinter">
+						<faultHandlers>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<assign name="Eingabe_Zuweisen"/>
+							<invoke inputVariable="printerRequest"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+	</flow>
+</process>

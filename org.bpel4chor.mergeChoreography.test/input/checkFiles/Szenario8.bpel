@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract">
+	<flow name="MergedFlow">
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="FH_SurScope_.*">
+						<faultHandlers>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<flow name="FH_Processing_.*">
+							<empty name="continueProcess">
+								<targets/>
+							</empty>
+							<scope name="Scope_Szenario4_SimpleFH_catch">
+								<targets/>
+								<sources/>
+								<compensationHandler>
+									<empty/>
+								</compensationHandler>
+								<sequence>
+									<empty name="Receive_getFaultMessage">
+										<targets>
+											<target linkName="callFhFromSimpleFhTOReceive_getFaultMessage"/>
+										</targets>
+									</empty>
+									<assign name="Assign_faultMessage" validate="no">
+										<copy>
+											<from>
+												<literal>
+													<tns:FaultHandlerResponse xmlns:tns="http://uni-stuttgart.de/iaas/bpel/FaultHandler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+														<tns:result>tns:result</tns:result>
+													</tns:FaultHandlerResponse>
+												</literal>
+											</from>
+											<to part="payload" variable="faultResponse"/>
+										</copy>
+										<copy>
+											<from variable="input"/>
+											<to part="payload" variable="faultResponse">
+												<query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+													<![CDATA[fh:result]]>
+												</query>
+											</to>
+										</copy>
+									</assign>
+									<empty name="Reply_faultMessage"/>
+								</sequence>
+							</scope>
+							<scope name="Scope_Szenario4_SimpleFH">
+								<sources/>
+								<correlationSets>
+									<correlationSet name="startCorFaultHandler" properties="startcfhp"/>
+								</correlationSets>
+								<faultHandlers>
+									<catch>
+										<empty>
+											<sources/>
+										</empty>
+									</catch>
+									<catchAll>
+										<compensate/>
+									</catchAll>
+								</faultHandlers>
+								<sequence name="main">
+									<throw name="Falsche_Eingabe"/>
+								</sequence>
+							</scope>
+						</flow>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_SimpleCallFH">
+						<faultHandlers>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<receive name="getCorId"/>
+							<assign name="corTocall"/>
+							<assign name="callSimpleFh"/>
+							<assign name="cortToCall"/>
+							<assign name="callFhFromSimpleFh"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+	</flow>
+</process>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract">
+	<flow name="MergedFlow">
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign validate="no"/>
+				<flow>
+					<scope name="Scope_ScenarioWithAsyncIncomingLink">
+						<correlationSets>
+							<correlationSet name="CorrelationSet" properties="corRefP1toP2"/>
+						</correlationSets>
+						<faultHandlers>
+							<catch>
+								<sequence>
+									<assign name="Error"/>
+									<empty name="receiveSwailSupport"/>
+								</sequence>
+							</catch>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<receive name="receiveInput"/>
+							<assign name="Assign"/>
+							<if name="If">
+								<sequence>
+									<assign name="Fehler_ausgabe"/>
+									<reply name="replyOutput"/>
+									<throw name="Falsche_Eingabe"/>
+								</sequence>
+								<else>
+									<sequence name="Sequence">
+										<reply name="ReplyOutput_ohne_Fehler"/>
+									</sequence>
+								</else>
+							</if>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_ScenarioWAILSupport">
+						<correlationSets>
+							<correlationSet name="CorrelationSet" properties="corRefP2toP1"/>
+						</correlationSets>
+						<faultHandlers>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<assign name="Assign_cor"/>
+							<wait name="Wait"/>
+							<empty name="swailCallbackClient"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+	</flow>
+</process>

@@ -1,0 +1,8 @@
+
+
+/org.bpel4chor.mergeChoreography.test/bin/
+/org.bpel4chor.mergeChoreography/bin/
+/org.bpel4chor.mergeChoreography.test/*.log
+/org.bpel4chor.mergeChoreography.test/*.log.*
+/org.bpel4chor.mergeChoreography/*.log
+/org.bpel4chor.mergeChoreography/*.log.*

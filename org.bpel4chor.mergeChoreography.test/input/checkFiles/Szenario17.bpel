@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract" >
+	<flow name="MergedFlow">
+		<scope name="CH_SurScope_.*">
+			<variables>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+				<variable name="isScopeCompleted_.*" type="ns0:boolean">
+					<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+						<![CDATA[false()]]>
+					</from>
+				</variable>
+			</variables>
+			<sequence>
+				<assign/>
+				<flow>
+					<scope  name="Scope_Scenario_CompensationHandler">
+						<sequence name="main">
+							<receive  name="receiveInput" />
+							<assign name="Assign" />
+							<assign name="callBpelPrinter"/>
+							<flow name="Flow">
+								<links>
+									<link name="link4"/>
+								</links>
+								<scope name="Scope">
+									<sequence>
+										<assign >
+											<copy>
+												<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+													<![CDATA[true()]]>
+												</from>
+												<to variable="isScopeCompleted_.*"/>
+											</copy>
+										</assign>
+										<sequence>
+											<scope name="Scope2">
+												<sequence>
+													<assign >
+														<copy>
+															<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																<![CDATA[true()]]>
+															</from>
+															<to variable="isScopeCompleted_.*"/>
+														</copy>
+													</assign>
+													<empty name="Empty"/>
+												</sequence>
+											</scope>
+											<flow name="Flow1">
+												<links>
+													<link name="link1"/>
+												</links>
+												<scope name="Scope3">
+													<sources>
+														<source linkName="link1"/>
+													</sources>
+													<sequence>
+														<assign >
+															<copy>
+																<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																	<![CDATA[true()]]>
+																</from>
+																<to variable="isScopeCompleted_.*"/>
+															</copy>
+														</assign>
+														<scope name="Scope4">
+															<sequence>
+																<assign>
+																	<copy>
+																		<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																			<![CDATA[true()]]>
+																		</from>
+																		<to variable="isScopeCompleted_.*"/>
+																	</copy>
+																</assign>
+																<empty name="Empty1"/>
+															</sequence>
+														</scope>
+													</sequence>
+												</scope>
+												<scope exitOnStandardFault="no" isolated="no" name="Scope5">
+													<targets>
+														<target linkName="link1"/>
+													</targets>
+													<sources>
+														<source linkName="link4"/>
+													</sources>
+													<sequence>
+														<assign validate="no">
+															<copy>
+																<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																	<![CDATA[true()]]>
+																</from>
+																<to variable="isScopeCompleted_.*"/>
+															</copy>
+														</assign>
+														<empty name="Empty2"/>
+													</sequence>
+												</scope>
+											</flow>
+										</sequence>
+									</sequence>
+								</scope>
+								<scope exitOnStandardFault="no" isolated="no" name="Scope1">
+									<sequence>
+										<assign validate="no">
+											<copy>
+												<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+													<![CDATA[true()]]>
+												</from>
+												<to variable="isScopeCompleted_.*"/>
+											</copy>
+										</assign>
+										<flow name="Flow2">
+											<links>
+												<link name="link2"/>
+												<link name="link3"/>
+											</links>
+											<scope name="Scope6">
+												<sources>
+													<source linkName="link2"/>
+												</sources>
+												<sequence>
+													<assign>
+														<copy>
+															<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																<![CDATA[true()]]>
+															</from>
+															<to variable="isScopeCompleted_.*"/>
+														</copy>
+													</assign>
+													<empty name="Empty3"/>
+												</sequence>
+											</scope>
+											<scope name="Scope7">
+												<targets>
+													<target linkName="link2"/>
+												</targets>
+												<sources>
+													<source linkName="link3"/>
+												</sources>
+												<sequence>
+													<assign>
+														<copy>
+															<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																<![CDATA[true()]]>
+															</from>
+															<to variable="isScopeCompleted_.*"/>
+														</copy>
+													</assign>
+													<scope name="Scope8">
+														<targets>
+															<target linkName="link4"/>
+														</targets>
+														<sequence>
+															<assign>
+																<copy>
+																	<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																		<![CDATA[true()]]>
+																	</from>
+																	<to variable="isScopeCompleted_.*"/>
+																</copy>
+															</assign>
+															<empty name="Empty4"/>
+														</sequence>
+													</scope>
+												</sequence>
+											</scope>
+											<scope name="Scope9">
+												<targets>
+													<target linkName="link3"/>
+												</targets>
+												<sequence>
+													<assign>
+														<copy>
+															<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																<![CDATA[true()]]>
+															</from>
+															<to variable="isScopeCompleted_.*"/>
+														</copy>
+													</assign>
+													<empty name="Empty5"/>
+												</sequence>
+											</scope>
+											<scope exitOnStandardFault="no" isolated="no" name="Scope10">
+												<sequence>
+													<assign validate="no">
+														<copy>
+															<from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+																<![CDATA[true()]]>
+															</from>
+															<to variable="isScopeCompleted_.*"/>
+														</copy>
+													</assign>
+													<empty name="Empty6"/>
+												</sequence>
+											</scope>
+										</flow>
+									</sequence>
+								</scope>
+							</flow>
+							<reply name="ReplyOutput_ohne_Fehler" variable="output"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+							<link name="CH_link_.*"/>
+						</links>
+						<flow>
+							<scope name="Scope_.*">
+								<targets>
+									<target linkName="CH_link_.*"/>
+								</targets>
+								<if>
+									<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+										<![CDATA[$isScopeCompleted_.*]]>
+									</condition>
+									<empty/>
+								</if>
+							</scope>
+							<scope name="Scope2_.*">
+								<targets>
+									<target linkName="CH_link_.*"/>
+								</targets>
+								<sources>
+									<source linkName="CH_link_.*"/>
+								</sources>
+								<if>
+									<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+										<![CDATA[$isScopeCompleted_.*]]>
+									</condition>
+									<empty/>
+								</if>
+							</scope>
+							<flow>
+								<sources>
+									<source linkName="CH_link_.*"/>
+								</sources>
+								<scope name="Scope3_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope4_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<sources>
+										<source linkName="CH_link_.*"/>
+									</sources>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope5_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<sources>
+										<source linkName="CH_link_.*"/>
+									</sources>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+							</flow>
+							<scope name="Scope1_.*">
+								<targets>
+									<target linkName="CH_link_.*"/>
+								</targets>
+								<if>
+									<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+										<![CDATA[$isScopeCompleted_.*]]>
+									</condition>
+									<empty/>
+								</if>
+							</scope>
+							<flow>
+								<sources>
+									<source linkName="CH_link_.*"/>
+								</sources>
+								<scope name="Scope10_.*">
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope6_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope9_.*">
+									<sources>
+										<source linkName="CH_link_.*"/>
+									</sources>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope7_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<sources>
+										<source linkName="CH_link_.*"/>
+									</sources>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+								<scope name="Scope8_.*">
+									<targets>
+										<target linkName="CH_link_.*"/>
+									</targets>
+									<sources>
+										<source linkName="CH_link_.*"/>
+										<source linkName="CH_link_.*"/>
+									</sources>
+									<if>
+										<condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[$isScopeCompleted_.*]]>
+										</condition>
+										<empty/>
+									</if>
+								</scope>
+							</flow>
+						</flow>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_BpelPrinter">
+						<sequence name="main">
+							<assign name="Eingabe_Zuweisen">
+								<targets>
+									<target linkName="callBpelPrinterTOEingabe_Zuweisen"/>
+								</targets>
+								<copy>
+									<from>
+										<literal>
+											<impl:printInformation xmlns:impl="http://webservice.iaas.uni_stuttgart.de" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+												<impl:information>impl:information</impl:information>
+											</impl:printInformation>
+										</literal>
+									</from>
+									<to part="parameters" variable="printerRequest"/>
+								</copy>
+								<copy>
+									<from part="payload" variable="input">
+										<query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[tns:input]]>
+										</query>
+									</from>
+									<to part="parameters" variable="printerRequest">
+										<query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+											<![CDATA[pb:information]]>
+										</query>
+									</to>
+								</copy>
+							</assign>
+							<invoke name="Invoke"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+	</flow>
+</process>

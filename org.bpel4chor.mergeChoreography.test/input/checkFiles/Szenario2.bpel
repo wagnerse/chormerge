@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract">
+	<flow name="MergedFlow">
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_ScenarioOnlyOutgoingLink">
+						<faultHandlers>
+							<catch>
+								<sequence>
+									<assign name="Error"/>
+								</sequence>
+							</catch>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<receive name="receiveInput"/>
+							<assign name="Assign"/>
+							<if name="If">
+								<sequence>
+									<assign name="Fehler_ausgabe"/>
+									<reply name="replyOutput"/>
+									<throw name="Falsche_Eingabe"/>
+								</sequence>
+								<else>
+									<sequence name="Sequence">
+										<reply name="ReplyOutput_ohne_Fehler"/>
+									</sequence>
+								</else>
+							</if>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+		<scope name="CH_SurScope_.*">
+			<sequence>
+				<assign/>
+				<flow>
+					<scope name="Scope_BpelPrinter">
+						<faultHandlers>
+							<catchAll>
+								<compensate/>
+							</catchAll>
+						</faultHandlers>
+						<sequence name="main">
+							<assign name="Eingabe_Zuweisen"/>
+							<invoke name="Invoke"/>
+						</sequence>
+					</scope>
+					<flow name="CH_SurFlow_.*">
+						<links/>
+					</flow>
+				</flow>
+			</sequence>
+		</scope>
+	</flow>
+</process>
